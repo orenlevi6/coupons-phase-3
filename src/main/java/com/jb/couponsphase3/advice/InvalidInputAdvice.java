@@ -2,6 +2,7 @@ package com.jb.couponsphase3.advice;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.hibernate.PropertyValueException;
+import org.postgresql.util.PSQLException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,7 +14,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 @RestController
 @ControllerAdvice
 public class InvalidInputAdvice {
-    @ExceptionHandler(value = {SQLIntegrityConstraintViolationException.class})
+    @ExceptionHandler(value = {SQLIntegrityConstraintViolationException.class, PSQLException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorDetails handleUniqueException(Exception err) {
         return new ErrorDetails("Unique Value Error", "Name, email or title already taken");
