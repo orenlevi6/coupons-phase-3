@@ -9,14 +9,14 @@ import org.springframework.web.filter.CorsFilter;
 import java.util.List;
 
 @Configuration
-public class CorsConfig {
+public class CORSConfig {
     @Bean
     public CorsFilter corsFilter() {
         //create new url configuration for browsers
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        //create new cors configuration....
+        //create new CORS configuration....
         CorsConfiguration config = new CorsConfiguration();
-        //allow to get credentials in cors
+        //allow to get credentials in CORS
         config.setAllowCredentials(true);
         //allow to get from any ip/domain
         config.addAllowedOriginPattern("*");
