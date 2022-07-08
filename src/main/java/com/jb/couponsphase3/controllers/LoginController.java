@@ -9,14 +9,12 @@ import com.jb.couponsphase3.services.serviceImpl.CustomerServiceImpl;
 import com.jb.couponsphase3.utils.JWT;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/login")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class LoginController {
     private final JWT jwt;
     private final LoginService loginService;
